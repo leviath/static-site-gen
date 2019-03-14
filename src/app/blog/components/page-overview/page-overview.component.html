@@ -1,0 +1,27 @@
+<ng-container *ngIf="blogContent$ | async as blogContent">
+    <div class="blog-teaser">
+        <div class="background" [ngStyle]="{'background-image': 'url('+ (blogContent.introduction.teaser | assetPath ) + ')'}"></div>
+        <div class="wrapper">
+            <h2>
+                <span>{{blogContent.introduction.tags[0]}}</span>
+                {{blogContent.introduction.headline}}
+            </h2>
+
+            <app-teasered-content [headline]="'New Entrys'" [limit]="2"></app-teasered-content>
+        </div>
+    </div>
+
+    <div class="trending">
+        <h3>Trending Topics</h3>
+        <app-teasered-content ></app-teasered-content>
+    </div>
+    <div class="trending">
+        <h3>Topic Food</h3>
+        <app-teasered-content [filterTag]="'food'"></app-teasered-content>
+    </div>
+
+    <div class="trending">
+        <h3>Topic Travel</h3>
+        <app-teasered-content [filterTag]="'travel'"></app-teasered-content>
+    </div>
+</ng-container>

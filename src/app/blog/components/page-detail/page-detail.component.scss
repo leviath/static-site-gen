@@ -1,0 +1,26 @@
+@import 'variables';
+@import 'breakpoints';
+@import 'mixins';
+
+:host {
+    display: block;
+    @include layout-row();
+
+    img {
+        width: 100%;
+    }
+
+    h2 {
+        color: $ci-color-emperora;
+        font-weight: bold;
+        font-size: 36px;
+        text-align: center;
+
+        span {
+            display: block;
+            font-weight: normal;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    }
+}

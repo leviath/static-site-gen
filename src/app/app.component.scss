@@ -1,0 +1,41 @@
+@import 'variables';
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+:host {
+    display: block;
+    font-family: $main-font;
+    font-weight: normal;
+    line-height: 1.2;
+
+    /deep/ a {
+        display: inline-block;
+        font-size: 14px;
+        font-weight: bold;
+        color: $ci-color-victoria;
+        text-decoration: none;
+        padding: 3px;
+        background: transparent;
+
+        &.btn {
+            &.fancy {
+                color: white;
+                transition: all 0.5s;
+                position: relative;
+                background: $ci-color-selective;
+                padding: 10px 40px;
+
+                &:hover {
+                    color: $ci-color-selective;
+                    background: rgba(255,255,255,0.25);
+                    border: 1px solid $ci-color-selective;
+                }
+            }
+        }
+
+        &:hover {
+            color: white;
+            background: $ci-color-victoria;
+            transition: all .5s linear;
+        }
+    }
+}

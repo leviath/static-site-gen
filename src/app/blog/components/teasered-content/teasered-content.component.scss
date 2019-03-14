@@ -1,0 +1,120 @@
+@import 'variables';
+@import 'breakpoints';
+
+:host {
+    width: 100%;
+    max-width: 500px;
+    align-self: flex-end;
+
+    @include respond-to('small') {
+        width: 100%;
+        max-width: 100%;
+        align-self: flex-start;
+    }
+
+    .headline {
+        color: white;
+        font-weight: bold;
+        margin: 10px 0;
+        display: block;
+        text-transform: uppercase;
+        font-size: 12px;
+        letter-spacing: 1px;
+    }
+
+    .content-box {
+        display: grid;
+        grid-template-columns: repeat(auto-fill,240px);
+        justify-content: space-between;
+
+        @include respond-to('small') {
+            grid-template-columns: repeat(auto-fill, 100%);
+        }
+
+        .box {
+            flex: 1;
+            margin-left: 10px;
+            margin-bottom: 20px;
+            background: white;
+            box-shadow: 2px 2px 4px rgba(0,0,0,.1);
+
+            &:first-child {
+                margin-left: 0;
+            }
+
+            .more {
+                opacity: 0;
+                text-shadow: 0 1px rgba(0,0,0,.6);
+                position: absolute;
+                color: white;
+                z-index: 100;
+                width: 100%;
+                text-align: center;
+                top: 50%;
+                transition: all .2s linear;
+            }
+
+            &:hover {
+                cursor: pointer;
+                box-shadow: 0 0 4px rgba(0,0,0,.25);
+                color: $ci-color-selective;
+
+                .teaser-image {
+                    &:after {
+                        background: linear-gradient(-45deg, $ci-color-selective 0%, $ci-color-carnation 100%);
+                        opacity: .3;
+                    }
+                }
+
+                .more {
+                    opacity: 1;
+                }
+            }
+
+            .teaser-image {
+                height: 150px;
+                overflow: hidden;
+                position: relative;
+
+                @include respond-to('small') {
+                    height: 200px;
+                }
+
+                &:after {
+                    content: "";
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    background: transparent;
+                    position: relative;
+                    opacity: 0;
+                    transition: all .2s linear;
+                }
+
+                img {
+                    position: absolute;
+                    width: 100%;
+                }
+            }
+
+            .content {
+                padding: 15px 10px;
+
+                p {
+                    @include respond-to('small') {
+                        white-space: nowrap;
+                        margin: 10px 0;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                    }
+                }
+
+                .flag {
+                    color: $ci-color-emperora;
+                    font-size: 12px;
+                    text-transform: uppercase;
+                }
+            }
+        }
+    }
+}

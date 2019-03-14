@@ -1,0 +1,16 @@
+<span class="headline" *ngIf="headline">{{headline}}</span>
+
+<div class="content-box" *ngIf="blogContent$ | async as teaserContent">
+    <div class="box" *ngFor="let teaser of teaserContent | flagFilter: filterTag" routerLink="{{teaser.route}}">
+        <div class="teaser-image">
+            <img [src]="'content/' + teaser.image | assetPath">
+
+            <span class="more">Read more</span>
+        </div>
+
+        <div class="content">
+            <div class="flag">{{teaser.tag}}</div>
+            <p>{{teaser.teaseredContent}}</p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<ng-container *ngIf="blog$ | async as blog; else noContent">
+
+    <h2>
+        {{blog.headline}}
+        <span>created at {{blog.created | date:'dd.MM.yyyy'}}</span>
+    </h2>
+
+    <img [src]="'content/' + blog.image | assetPath">
+    <p [innerHTML]="blog.content"></p>
+</ng-container>
+
+<a routerLink="/blog" class="btn fancy">Zurück</a>
+
+
+<ng-template #noContent>
+    <h2>Leider ist ein Fehler aufgetreten</h2>
+</ng-template>
